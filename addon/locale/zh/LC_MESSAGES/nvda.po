@@ -1,0 +1,14 @@
+msgid "search"
+msgstr "搜索"
+
+msgid "select browser"
+msgstr "选择浏览器"
+
+msgid "Input URL or Keywords"
+msgstr "输入网址或关键词"
+
+msgid "Input Cannot be empty"
+msgstr "输入不能为空"
+
+msgid "No Browser detect"
+msgstr "未检测到浏览器"

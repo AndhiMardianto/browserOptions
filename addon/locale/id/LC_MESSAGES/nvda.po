@@ -1,0 +1,14 @@
+msgid "search"
+msgstr "cari"
+
+msgid "select browser"
+msgstr "pilih browser"
+
+msgid "Input URL or Keywords"
+msgstr "Masukkan URL atau Kata Kunci"
+
+msgid "Input Cannot be empty"
+msgstr "Input tidak boleh kosong"
+
+msgid "No Browser detect"
+msgstr "Tidak ada browser  terdeteksi"

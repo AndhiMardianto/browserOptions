@@ -1,0 +1,14 @@
+msgid "search"
+msgstr "खोजें"
+
+msgid "select browser"
+msgstr "ब्राउज़र चुनें"
+
+msgid "Input URL or Keywords"
+msgstr "यूआरएल या कीवर्ड दर्ज करें"
+
+msgid "Input Cannot be empty"
+msgstr "इनपुट खाली नहीं हो सकता"
+
+msgid "No Browser detect"
+msgstr "कोई ब्राउज़र नहीं मिला"

@@ -1,0 +1,14 @@
+msgid "search"
+msgstr "検索"
+
+msgid "select browser"
+msgstr "ブラウザを選択"
+
+msgid "Input URL or Keywords"
+msgstr "URLまたはキーワードを入力"
+
+msgid "Input Cannot be empty"
+msgstr "入力は空にできません"
+
+msgid "No Browser detect"
+msgstr "ブラウザが検出されません"

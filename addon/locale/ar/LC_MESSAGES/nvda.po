@@ -1,0 +1,14 @@
+msgid "search"
+msgstr "بحث"
+
+msgid "select browser"
+msgstr "اختر المتصفح"
+
+msgid "Input URL or Keywords"
+msgstr "أدخل عنوان URL أو الكلمات الرئيسية"
+
+msgid "Input Cannot be empty"
+msgstr "لا يمكن أن يكون الإدخال فارغًا"
+
+msgid "No Browser detect"
+msgstr "لم يتم اكتشاف أي متصفح"
