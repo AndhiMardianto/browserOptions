@@ -1,6 +1,6 @@
 # Browser Options 1.0.0
 
-**Author**: Andhim
+**Author**: Andhi Mardianto
 
 ## Introduction
 
