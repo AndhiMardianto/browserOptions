@@ -9,6 +9,7 @@ import json
 import wx
 import subprocess
 import winreg
+import addonHandler
 from globalPluginHandler import GlobalPlugin
 import ui
 import api 

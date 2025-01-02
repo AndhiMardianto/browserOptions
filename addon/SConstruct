@@ -12,7 +12,6 @@ AddonFiles = [
     "buildVars.py",
     "globalPlugins/browserOptions/__init__.py",
     "doc/en/readme.html",
-    "doc/en/readme.md",
     "locale/ar/LC_MESSAGES/nvda.po",   
     "locale/ar/LC_MESSAGES/nvda.mo",   
     "locale/es/LC_MESSAGES/nvda.po",   
