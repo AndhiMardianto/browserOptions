@@ -1,14 +1,96 @@
-msgid "search"
+# Translation file for Browser Options NVDA Add-on.
+# Copyright (C) 2025 Browser Options Project
+# This file is distributed under the same license as the BrowserOptions package.
+# Andhi Mardianto <anditoinfo@gmail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: BrowserOptions 1.1\n"
+"Report-Msgid-Bugs-To: anditoinfo@gmail.com\n"
+"POT-Creation-Date: 2025-01-02 10:01+0700\n"
+"PO-Revision-Date: 2025-01-02 10:30+0700\n"
+"Last-Translator: Andhi Mardianto <anditoinfo@gmail.com>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: globalPlugins/browserOptions/__init__.py:56
+#: globalPlugins/browserOptions/__init__.py:107
+msgid "Add Favorite"
+msgstr "إضافة مفضلة"
+
+#: globalPlugins/browserOptions/__init__.py:60
+msgid "Name:"
+msgstr "الاسم:"
+
+#: globalPlugins/browserOptions/__init__.py:61
+msgid "URL:"
+msgstr "الرابط الإلكتروني:"
+
+#: globalPlugins/browserOptions/__init__.py:66
+msgid "Save"
+msgstr "حفظ"
+
+#: globalPlugins/browserOptions/__init__.py:79
+msgid "Both Name and URL are required."
+msgstr "يجب ملء الاسم والرابط الإلكتروني."
+
+#: globalPlugins/browserOptions/__init__.py:83
+msgid "Invalid URL. It should start with http:// or https://"
+msgstr "الرابط غير صالح. يجب أن يبدأ بـ http:// أو https://"
+
+#: globalPlugins/browserOptions/__init__.py:89
+msgid "Favorite added successfully!"
+msgstr "تمت إضافة المفضلة بنجاح!"
+
+#: globalPlugins/browserOptions/__init__.py:98
+msgid "Input URL or Keywords"
+msgstr "أدخل الرابط الإلكتروني أو الكلمات المفتاحية"
+
+#: globalPlugins/browserOptions/__init__.py:101
+msgid "Search"
 msgstr "بحث"
 
-msgid "select browser"
-msgstr "اختر المتصفح"
+#: globalPlugins/browserOptions/__init__.py:104
+msgid "Favorites"
+msgstr "المفضلة"
 
-msgid "Input URL or Keywords"
-msgstr "أدخل عنوان URL أو الكلمات الرئيسية"
+#: globalPlugins/browserOptions/__init__.py:110
+msgid "Delete Favorite"
+msgstr "حذف المفضلة"
 
-msgid "Input Cannot be empty"
-msgstr "لا يمكن أن يكون الإدخال فارغًا"
+#: globalPlugins/browserOptions/__init__.py:124
+msgid "Input cannot be empty"
+msgstr "لا يمكن ترك الحقل فارغاً"
 
-msgid "No Browser detect"
+#: globalPlugins/browserOptions/__init__.py:139
+msgid "No browser detected"
 msgstr "لم يتم اكتشاف أي متصفح"
+
+#: globalPlugins/browserOptions/__init__.py:143
+msgid "Select Browser"
+msgstr "اختر متصفحاً"
+
+#: globalPlugins/browserOptions/__init__.py:182
+msgid "No favorites found"
+msgstr "لم يتم العثور على مفضلات"
+
+#: globalPlugins/browserOptions/__init__.py:187
+msgid "Select Favorite"
+msgstr "اختر مفضلة"
+
+#: globalPlugins/browserOptions/__init__.py:208
+msgid "Select Favorite Link to Delete"
+msgstr "اختر رابط المفضلة للحذف"
+
+#: globalPlugins/browserOptions/__init__.py:214
+msgid "Favorite deleted successfully!"
+msgstr "تم حذف المفضلة بنجاح!"
+
+msgid "Ok"
+msgstr "حسناً"
+
+msgid "Cancel"
+msgstr "إلغاء"

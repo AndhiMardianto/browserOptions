@@ -1,14 +1,96 @@
-msgid "search"
-msgstr "搜索"
+# Translation file for Browser Options NVDA Add-on.
+# Copyright (C) 2025 Browser Options Project
+# This file is distributed under the same license as the BrowserOptions package.
+# Andhi Mardianto <anditoinfo@gmail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: BrowserOptions 1.1\n"
+"Report-Msgid-Bugs-To: anditoinfo@gmail.com\n"
+"POT-Creation-Date: 2025-01-02 10:01+0700\n"
+"PO-Revision-Date: 2025-01-02 10:30+0700\n"
+"Last-Translator: Andhi Mardianto <anditoinfo@gmail.com>\n"
+"Language-Team: Chinese <zh@li.org>\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
-msgid "select browser"
-msgstr "选择浏览器"
+#: globalPlugins/browserOptions/__init__.py:56
+#: globalPlugins/browserOptions/__init__.py:107
+msgid "Add Favorite"
+msgstr "添加收藏"
 
+#: globalPlugins/browserOptions/__init__.py:60
+msgid "Name:"
+msgstr "名称："
+
+#: globalPlugins/browserOptions/__init__.py:61
+msgid "URL:"
+msgstr "网址："
+
+#: globalPlugins/browserOptions/__init__.py:66
+msgid "Save"
+msgstr "保存"
+
+#: globalPlugins/browserOptions/__init__.py:79
+msgid "Both Name and URL are required."
+msgstr "名称和网址都是必填项。"
+
+#: globalPlugins/browserOptions/__init__.py:83
+msgid "Invalid URL. It should start with http:// or https://"
+msgstr "无效的网址。应以 http:// 或 https:// 开头。"
+
+#: globalPlugins/browserOptions/__init__.py:89
+msgid "Favorite added successfully!"
+msgstr "收藏添加成功！"
+
+#: globalPlugins/browserOptions/__init__.py:98
 msgid "Input URL or Keywords"
 msgstr "输入网址或关键词"
 
-msgid "Input Cannot be empty"
-msgstr "输入不能为空"
+#: globalPlugins/browserOptions/__init__.py:101
+msgid "Search"
+msgstr "搜索"
 
-msgid "No Browser detect"
-msgstr "未检测到浏览器"
+#: globalPlugins/browserOptions/__init__.py:104
+msgid "Favorites"
+msgstr "收藏夹"
+
+#: globalPlugins/browserOptions/__init__.py:110
+msgid "Delete Favorite"
+msgstr "删除收藏"
+
+#: globalPlugins/browserOptions/__init__.py:124
+msgid "Input cannot be empty"
+msgstr "输入不能为空。"
+
+#: globalPlugins/browserOptions/__init__.py:139
+msgid "No browser detected"
+msgstr "未检测到浏览器。"
+
+#: globalPlugins/browserOptions/__init__.py:143
+msgid "Select Browser"
+msgstr "选择浏览器"
+
+#: globalPlugins/browserOptions/__init__.py:182
+msgid "No favorites found"
+msgstr "未找到收藏夹。"
+
+#: globalPlugins/browserOptions/__init__.py:187
+msgid "Select Favorite"
+msgstr "选择收藏"
+
+#: globalPlugins/browserOptions/__init__.py:208
+msgid "Select Favorite Link to Delete"
+msgstr "选择要删除的收藏链接。"
+
+#: globalPlugins/browserOptions/__init__.py:214
+msgid "Favorite deleted successfully!"
+msgstr "收藏已成功删除！"
+
+msgid "Ok"
+msgstr "确定"
+
+msgid "Cancel"
+msgstr "取消"

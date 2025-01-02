@@ -23,6 +23,8 @@ AddonFiles = [
     "locale/id/LC_MESSAGES/nvda.mo",   
     "locale/ja/LC_MESSAGES/nvda.po",   
     "locale/ja/LC_MESSAGES/nvda.mo",   
+    "locale/ur/LC_MESSAGES/nvda.mo",   
+    "locale/ur/LC_MESSAGES/nvda.po",   
     "locale/pt/LC_MESSAGES/nvda.po",   
     "locale/pt/LC_MESSAGES/nvda.mo",   
     "locale/zh/LC_MESSAGES/nvda.po",   
