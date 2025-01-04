@@ -4,12 +4,10 @@ import sys
 # Tambahkan folder root ke path Python
 sys.path.insert(0, os.getcwd())
 
-# Import buildVars
 import buildVars
 # Tentukan lokasi file yang akan dikemas
 AddonFiles = [
     "manifest.ini",
-    "buildVars.py",
     "globalPlugins/browserOptions/__init__.py",
     "doc/en/readme.html",
     "locale/ar/LC_MESSAGES/nvda.po",   

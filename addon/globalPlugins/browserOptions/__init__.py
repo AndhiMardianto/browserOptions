@@ -10,48 +10,64 @@ import wx
 import subprocess
 import winreg
 import addonHandler
-from globalPluginHandler import GlobalPlugin
 import ui
-import api 
 from scriptHandler import script
 addonHandler.initTranslation()
 
+    #Returns the path to the AppData\Roaming\dataBrowserOptions folder
+def get_appdata_folder():
 
-def get_browser_options_folder():
-    """Mengembalikan path ke folder browserOptions di AppData\Roaming"""
-    appdata_folder = os.getenv("APPDATA")  # Lokasi AppData\Roaming
-    browser_options_folder = os.path.join(appdata_folder, "browserOptions")
-    if not os.path.exists(browser_options_folder):
-        os.makedirs(browser_options_folder)
-    return browser_options_folder
+    appdata_folder = os.getenv("APPDATA")
+    return os.path.join(appdata_folder, "dataBrowserOptions")
+    #Returns the path to a local folder in the same directory as  main file 
+def get_local_folder():
+    return os.path.join(os.path.dirname(__file__), "dataBrowserOptions")
+    #Make sure the folder exists, if not, create 
+def ensure_folder_exists(folder_path):
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+    #Synchronize data between local directory and AppData roaming 
+def sync_data():
+    local_folder = get_local_folder()
+    appdata_folder = get_appdata_folder()
+    local_file = os.path.join(local_folder, "favorites.json")
+    appdata_file = os.path.join(appdata_folder, "favorites.json")
 
-def get_favorites_file():
-    """Mengembalikan path ke file favorites.json di dalam folder browserOptions"""
-    browser_options_folder = get_browser_options_folder()
-    favorites_file = os.path.join(browser_options_folder, "favorites.json")
-    if not os.path.exists(favorites_file):
-        # Jika file belum ada, buat file baru dengan data kosong
-        with open(favorites_file, "w") as f:
-            json.dump({}, f)  # Struktur data kosong
-    return favorites_file
+    ensure_folder_exists(local_folder)
+    ensure_folder_exists(appdata_folder)
+# If the local file does not exist but is in AppData, copy it from AppData roaming 
+    if not os.path.exists(local_file) and os.path.exists(appdata_file):
+        with open(appdata_file, "r") as f:
+            data = json.load(f)
+        with open(local_file, "w") as f:
+            json.dump(data, f, indent=4)
+# If the AppData file does not exist but exists locally, copy it to AppData
+    elif not os.path.exists(appdata_file) and os.path.exists(local_file):
+        with open(local_file, "r") as f:
+            data = json.load(f)
+        with open(appdata_file, "w") as f:
+            json.dump(data, f, indent=4)
 
+    #Loading data from favorite files
 def load_favorites():
-    """Memuat data dari file favorites.json"""
-    favorites_file = get_favorites_file()
+    sync_data()   # ensure syncron before create 
+    local_file = os.path.join(get_local_folder(), "favorites.json")
     try:
-        with open(favorites_file, "r") as f:
-            return json.load(f)  # Kembalikan data dalam bentuk dictionary
-    except json.JSONDecodeError:
-        # Jika terjadi kesalahan saat membaca file JSON, gunakan data kosong
+        with open(local_file, "r") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, FileNotFoundError):
         return {}
 
+    #Save favorites data to both locations
 def save_favorites(favorites):
-    """Menyimpan data ke file favorites.json"""
-    favorites_file = get_favorites_file()
-    with open(favorites_file, "w") as f:
-        json.dump(favorites, f, indent=4)  # Simpan dengan format JSON yang rapi
+    local_file = os.path.join(get_local_folder(), "favorites.json")
+    appdata_file = os.path.join(get_appdata_folder(), "favorites.json")
+    
+    for file_path in [local_file, appdata_file]:
+        with open(file_path, "w") as f:
+            json.dump(favorites, f, indent=4)
 
-
+#menu dialog favorite 
 class AddFavoriteDialog(wx.Dialog):
     def __init__(self, parent, favorites):
         super().__init__(parent, title=_("Add Favorite"), size=(400, 200))
@@ -85,12 +101,12 @@ class AddFavoriteDialog(wx.Dialog):
             return
 
         self.favorites[name] = url
-        save_favorites(self.favorites)  # Simpan data favorit yang diperbarui
+        save_favorites(self.favorites)  # save data updated 
 
         ui.message(_("Favorite added successfully!"))
         self.Destroy()
 
-
+# main menu dialog 
 class InteractiveDialog(wx.Dialog):
     def __init__(self, parent):
         super().__init__(parent, title="Browser Options", size=(400, 350))
@@ -155,14 +171,17 @@ class InteractiveDialog(wx.Dialog):
 
         dialog.Destroy()
 
+#detect all browser in device 
     def get_installed_browsers(self):
         browsers = {}
+        #detect chrome 
         try:
             with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe") as key:
                 chrome_command, _ = winreg.QueryValueEx(key, "")
                 browsers["Chrome"] = chrome_command
         except FileNotFoundError:
             pass
+# detect firefox 
 
         try:
             with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\firefox.exe") as key:
@@ -171,6 +190,7 @@ class InteractiveDialog(wx.Dialog):
         except FileNotFoundError:
             pass
 
+# detect edge 
         try:
             with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe") as key:
                 edge_command, _ = winreg.QueryValueEx(key, "")
@@ -178,11 +198,13 @@ class InteractiveDialog(wx.Dialog):
         except FileNotFoundError:
             pass
         return browsers
+
     def open_favorites(self, event):
         if not self.favorites:
             ui.message(_("No favorites found"))
             return
 
+# function show favorite menu 
         def show_dialog():
             names = list(self.favorites.keys())
             dialog = wx.SingleChoiceDialog(None, _("Select Favorite"), "Favorites", names)
@@ -193,16 +215,17 @@ class InteractiveDialog(wx.Dialog):
 
             dialog.Destroy()
 
-        wx.CallAfter(show_dialog)  
-
+        wx.CallAfter(show_dialog)  #use  call after so it doesn't freeze
     
+    # function add favorite 
     def add_favorite(self, event):
         dialog = AddFavoriteDialog(self, self.favorites)
         dialog.ShowModal()
 
+    # function delete list favorite 
     def delete_favorite(self, event):
         if not self.favorites:
-            ui.message("No favorites found")
+            ui.message(_("No favorites found"))
             return
 
         names = list(self.favorites.keys())
