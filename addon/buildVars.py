@@ -1,5 +1,5 @@
 addon_name = "browserOptions"
-addon_version = "1.2.0"
+addon_version = "1.2.1"
 addon_minimumNVDAVersion = "2023.3"
 addon_lastTestedNVDAVersion = "2025.1"
 addon_summary = "Browser Options"
